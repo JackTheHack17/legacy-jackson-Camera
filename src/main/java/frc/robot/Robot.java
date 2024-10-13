@@ -35,7 +35,6 @@ public class Robot extends LoggedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();  
 
-    
     switch (Constants.getRunType()){  
        case SIM: 
           Logger.addDataReceiver(new NT4Publisher()); 
