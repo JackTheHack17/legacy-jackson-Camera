@@ -21,6 +21,6 @@ public final class Constants {
     }  
 
     public static RunType getRunType(){ 
-        return RunType.SIM;
+        return RunType.REAL;
     }
 }
