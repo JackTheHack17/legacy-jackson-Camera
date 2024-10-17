@@ -2,8 +2,10 @@ package frc.robot.Swerve;
 
 import org.littletonrobotics.junction.Logger;
 
+
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import frc.robot.Constants;
 import frc.robot.Swerve.ModuleIO.ModuleIOData;
 
 
@@ -12,10 +14,12 @@ public class Module {
     ModuleIO module;
     ModuleIOInputsAutoLogged inputs = new ModuleIOInputsAutoLogged();
 
+    
     public Module(int id){   
-       switch (SwerveConstants.SwerveSpecifications.CURRENT_MODUL_TYPE){ 
+       switch (Constants.getRunType()){ 
          case SIM -> module = new ModuleSimIO(id);
-         case TALON -> module = new ModuleTalonIO(id);
+         case REAL -> module = new ModuleTalonIO(id); 
+         case REPLAY -> module = new ModuleSimIO(id);
        }
     }  
 

@@ -7,16 +7,17 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 
 
-public abstract class ModuleIO {
+public abstract class ModuleIO { 
     
+    public record ModuleIOData(double linearVelocityMetersPerSec, Rotation2d angularVelocityPerSec, double linearMotorPosMeters, Rotation2d azimuthMotorPos){} 
+
     @AutoLog  
     public class ModuleIOInputs { 
         public double linearVelocityMetersPerSec = 0; 
         public Rotation2d angularVelocityPerSec = new Rotation2d(0); 
         public double linearMotorPosMeters = 0; 
         public Rotation2d azimuthMotorPos = new Rotation2d(0);  
-    }  
-    public record ModuleIOData(double linearVelocityMetersPerSec, Rotation2d angularVelocityPerSec, double linearMotorPosMeters, Rotation2d azimuthMotorPos){}
+    }   
 
     protected String key; 
     protected int id;       

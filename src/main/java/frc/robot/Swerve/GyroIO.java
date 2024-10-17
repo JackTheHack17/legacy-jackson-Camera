@@ -7,8 +7,10 @@ import edu.wpi.first.math.geometry.Rotation2d;
 
 public abstract class GyroIO  {   
     
+    public boolean isConnected = false; 
+
     @AutoLog
-    public class GyroIOInputs {  
+    public class GyroIOInputs {   
         public Rotation2d yaw = new Rotation2d(); 
         public Rotation2d pitch = new Rotation2d(); 
         public Rotation2d roll = new Rotation2d();
@@ -23,6 +25,14 @@ public abstract class GyroIO  {
     public GyroIOData getData(){ 
         return gyroData;
     }    
+    
+    public void setIsConencted(boolean connected){ 
+        isConnected = connected;
+    } 
+
+    public boolean getIsConnected(){ 
+        return isConnected;
+    } 
 
     public void updateInputs(GyroIOInputs inputs){ 
         inputs.pitch = gyroData.pitch(); 

@@ -20,7 +20,9 @@ public class GyroPigeonIO extends GyroIO {
 
         yawSupplier = hardwareGyro.getYaw(); 
         pitchSupplier = hardwareGyro.getPitch(); 
-        rollSupplier = hardwareGyro.getRoll();
+        rollSupplier = hardwareGyro.getRoll(); 
+
+        setIsConencted(true);
     } 
 
     @Override

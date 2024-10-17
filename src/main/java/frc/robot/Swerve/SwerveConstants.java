@@ -6,7 +6,7 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.util.Units;
-import frc.robot.Constants.RunType;
+
 
 
 public class SwerveConstants {  
@@ -32,8 +32,6 @@ public class SwerveConstants {
 
         public static final double MAXVELOCITYMPS = 20; 
         public static final double MAXVELOCITYRPS = 5; 
-
-        public static final ModuleType CURRENT_MODUL_TYPE = frc.robot.Constants.getRunType() == RunType.SIM ? ModuleType.SIM : ModuleType.TALON;   
 
         public static final SwerveDriveKinematics KINEMATICS = new SwerveDriveKinematics(
             new Translation2d[]{ 
