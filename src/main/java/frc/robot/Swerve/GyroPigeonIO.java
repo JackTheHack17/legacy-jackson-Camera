@@ -6,31 +6,31 @@ import com.ctre.phoenix6.hardware.Pigeon2;
 
 import edu.wpi.first.math.geometry.Rotation2d;
 
-public class GyroPigeonIO extends GyroIO { 
+public class GyroPigeonIO extends GyroIO {
 
-    Pigeon2 hardwareGyro; 
-    StatusSignal<Double> yawSupplier; 
-    StatusSignal<Double> pitchSupplier; 
+    Pigeon2 hardwareGyro;
+    StatusSignal<Double> yawSupplier;
+    StatusSignal<Double> pitchSupplier;
     StatusSignal<Double> rollSupplier;
 
-    public GyroPigeonIO(){ 
+    public GyroPigeonIO() {
         hardwareGyro = new Pigeon2(0); //Plug in accordingly  
-        hardwareGyro.getConfigurator().apply(new Pigeon2Configuration()); 
-        hardwareGyro.getConfigurator().setYaw(0);  
+        hardwareGyro.getConfigurator().apply(new Pigeon2Configuration());
+        hardwareGyro.getConfigurator().setYaw(0);
 
-        yawSupplier = hardwareGyro.getYaw(); 
-        pitchSupplier = hardwareGyro.getPitch(); 
-        rollSupplier = hardwareGyro.getRoll(); 
+        yawSupplier = hardwareGyro.getYaw();
+        pitchSupplier = hardwareGyro.getPitch();
+        rollSupplier = hardwareGyro.getRoll();
 
-        setIsConencted(true);
-    } 
+        isConnected = true;
+    }
 
     @Override
     void updateGyroData() {
-       gyroData = new GyroIOData(Rotation2d.fromDegrees(yawSupplier.getValueAsDouble()), 
-                                 Rotation2d.fromDegrees(pitchSupplier.getValueAsDouble()),  
-                                 Rotation2d.fromDegrees(rollSupplier.getValueAsDouble()));
-        
+        gyroData = new GyroIOData(Rotation2d.fromDegrees(yawSupplier.getValueAsDouble()),
+                Rotation2d.fromDegrees(pitchSupplier.getValueAsDouble()),
+                Rotation2d.fromDegrees(rollSupplier.getValueAsDouble()));
+
     }
-    
+
 }

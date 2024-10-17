@@ -2,35 +2,37 @@ package frc.robot.Swerve;
 
 import org.littletonrobotics.junction.Logger;
 
+import edu.wpi.first.math.geometry.Rotation2d;
 import frc.robot.Constants;
-import frc.robot.Swerve.GyroIO.GyroIOData;
 
-public class Gyro { 
+public class Gyro {
 
-     GyroIO gyro;  
-     GyroIOInputsAutoLogged inputs = new GyroIOInputsAutoLogged();
+    GyroIO gyro;
+    GyroIOInputsAutoLogged inputs = new GyroIOInputsAutoLogged();
 
-     public Gyro(){  
-       switch (Constants.getRunType()){ 
-          case REAL -> gyro = new GyroPigeonIO();  
-          case SIM -> gyro = new GyroSimIO(); 
-          case REPLAY -> gyro = new GyroSimIO();
-       }
-        
-     } 
+    public Gyro() {
+        switch (Constants.getRunType()) {
+            case REAL ->
+                gyro = new GyroPigeonIO();
+            case SIM ->
+                gyro = new GyroSimIO();
+            case REPLAY ->
+                gyro = new GyroSimIO();
+        }
+    }
 
-     public GyroIOData getData(){ 
-        return gyro.getData();
-     } 
+    public Rotation2d getHeading() {
+        return gyro.getData().yaw();
+    }
 
-     public boolean getIsConnected(){ 
+    public boolean getIsConnected() {
         return gyro.getIsConnected();
-     }
+    }
 
-     public void update(){   
-        gyro.updateGyroData();  
+    public void update() {
+        gyro.updateGyroData();
         gyro.updateInputs(inputs);
-        Logger.processInputs("Swerve/Gyro",inputs);
-     } 
+        Logger.processInputs("Swerve/Gyro", inputs);
+    }
 
 }

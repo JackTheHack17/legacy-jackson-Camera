@@ -4,7 +4,7 @@ public class GyroSimIO extends GyroIO {
 
     @Override
     void updateGyroData() {
-    
+
     }
-    
+
 }
