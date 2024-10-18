@@ -1,5 +1,7 @@
 package frc.robot.Swerve;
 
+import org.littletonrobotics.junction.Logger;
+
 import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -7,7 +9,7 @@ import edu.wpi.first.math.geometry.Twist2d;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-//import frc.robot.Swerve.Module;
+import frc.robot.Swerve.Module;
 import frc.robot.Swerve.SwerveConstants.SwerveSpecifications;
 
 public final class Drive extends SubsystemBase {
@@ -20,7 +22,6 @@ public final class Drive extends SubsystemBase {
     Rotation2d disconnectedHeading = new Rotation2d(0);
 
     public Drive() {
-
         modules = new Module[]{
             new Module(1), //FL
             new Module(2), //FR
@@ -97,7 +98,7 @@ public final class Drive extends SubsystemBase {
         }
         gyro.update();
         updateDisconnectedHeading();
-        poseEstimator.update(getGyroHeading(), getModulePositions());
-
+        poseEstimator.update(getGyroHeading(), getModulePositions()); 
+        Logger.recordOutput("Drive/Estimated Pose", getEstimatedPose());
     }
 }

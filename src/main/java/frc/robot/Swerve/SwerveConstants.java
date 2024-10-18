@@ -21,11 +21,6 @@ public class SwerveConstants {
     public static TalonModuleSpecifications backLeft = new TalonModuleSpecifications(0, 0, 0, false, false, new Rotation2d(0));
     public static TalonModuleSpecifications backRight = new TalonModuleSpecifications(0, 0, 0, false, false, new Rotation2d(0));
 
-    public enum ModuleType {
-        SIM,
-        TALON
-    };
-
     public class SwerveSpecifications {
 
         public static boolean ISFIELDRELATIVE = false;

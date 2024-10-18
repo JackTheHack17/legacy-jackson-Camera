@@ -13,8 +13,7 @@ public abstract class ModuleIO {
     }
 
     @AutoLog
-    public class ModuleIOInputs {
-
+    public static class ModuleIOInputs {
         public double linearVelocityMetersPerSec = 0;
         public Rotation2d angularVelocityPerSec = new Rotation2d(0);
         public double linearMotorPosMeters = 0;
@@ -68,7 +67,7 @@ public abstract class ModuleIO {
         setAzimuthAngleRPS(moduleState.angle.getRadians());
     }
 
-    public void updateInputs(ModuleIOInputs inputs) {
+    public void updateInputs(ModuleIO.ModuleIOInputs inputs) {
         inputs.angularVelocityPerSec = moduleData.angularVelocityPerSec();
         inputs.azimuthMotorPos = moduleData.azimuthMotorPos();
         inputs.linearMotorPosMeters = moduleData.linearMotorPosMeters();

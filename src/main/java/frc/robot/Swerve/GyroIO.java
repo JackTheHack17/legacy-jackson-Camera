@@ -9,7 +9,7 @@ public abstract class GyroIO {
     public boolean isConnected = false;
 
     @AutoLog
-    public class GyroIOInputs {
+    public static class GyroIOInputs {
 
         public Rotation2d yaw = new Rotation2d();
         public Rotation2d pitch = new Rotation2d();
@@ -36,7 +36,7 @@ public abstract class GyroIO {
         return isConnected;
     }
 
-    public void updateInputs(GyroIOInputs inputs) {
+    public void updateInputs(GyroIO.GyroIOInputs inputs) {
         inputs.pitch = gyroData.pitch();
         inputs.roll = gyroData.roll();
         inputs.yaw = gyroData.yaw();
